@@ -22,9 +22,10 @@
       <!-- Start Survey Step -->
       <div v-else-if="currentStep === 'start'" class="start-survey-container">
         <h2>
-          Bonjour,<br> Saint-Quentin-en-Yvelines et Île-de-France Mobilités
-          souhaiteraient connaitre vos habitudes de déplacement depuis la Gare
-          de Trappes,<br> accepteriez-vous de répondre à quelques questions ?
+          Bonjour,<br />
+          Saint-Quentin-en-Yvelines et Île-de-France Mobilités souhaiteraient
+          connaitre vos habitudes de déplacement depuis la Gare de Trappes,<br />
+          accepteriez-vous de répondre à quelques questions ?
         </h2>
         <h2></h2>
         <button @click="startSurvey" class="btn-next">
@@ -362,6 +363,10 @@ const selectAnswer = (option) => {
     if (option.next === "end" || option.next === "fin") {
       finishSurvey();
     } else {
+      // Add current question to path before moving to next
+      if (!questionPath.value.includes(questionId)) {
+        questionPath.value.push(questionId);
+      }
       nextQuestion(option.next);
     }
   }
@@ -427,7 +432,12 @@ const nextQuestion = (forcedNextId = null) => {
     const nextIndex = questions.findIndex((q) => q.id === nextQuestionId);
     if (nextIndex !== -1) {
       currentQuestionIndex.value = nextIndex;
-      questionPath.value.push(nextQuestionId);
+      // Only add to path if it's not already the last item
+      if (
+        questionPath.value[questionPath.value.length - 1] !== nextQuestionId
+      ) {
+        questionPath.value.push(nextQuestionId);
+      }
       freeTextAnswer.value = "";
 
       // Execute onEnter function if it exists
