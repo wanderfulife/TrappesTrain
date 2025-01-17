@@ -11,23 +11,17 @@ export const questions = [
     id: "origine_quartier",
     text: "Précisez le quartier",
     options: [
-      { id: 1, text: "La Plaine de Neauphle", next: "destination" },
-      { id: 2, text: "Le Village - Aérostat - Sand Pergaud Verlaine", next: "destination" },
-      { id: 3, text: "Jaurès Gare - Jean Macé", next: "destination" },
-      { id: 4, text: "Le Moulin de la Galette", next: "destination" },
-      { id: 5, text: "Les Merisiers - Farges Thorez - Cité Nouvelle", next: "destination" },
-      { id: 6, text: "La Boissière", next: "destination" }
+      { id: 1, text: "La Plaine de Neauphle", next: "ligne_train" },
+      { id: 2, text: "Le Village - Aérostat - Sand Pergaud Verlaine", next: "ligne_train" },
+      { id: 3, text: "Jaurès Gare - Jean Macé", next: "ligne_train" },
+      { id: 4, text: "Le Moulin de la Galette", next: "ligne_train" },
+      { id: 5, text: "Les Merisiers - Farges Thorez - Cité Nouvelle", next: "ligne_train" },
+      { id: 6, text: "La Boissière", next: "ligne_train" }
     ]
   },
   {
     id: "origine_autre",
     text: "Précisez la commune",
-    usesCommuneSelector: true,
-    next: "destination"
-  },
-  {
-    id: "destination",
-    text: "Quelle sera votre commune d'arrivée ?",
     usesCommuneSelector: true,
     next: "ligne_train"
   },
@@ -35,9 +29,15 @@ export const questions = [
     id: "ligne_train",
     text: "Quelle ligne allez-vous prendre ?",
     options: [
-      { id: 1, text: "Ligne N", next: "motif_deplacement" },
-      { id: 2, text: "Ligne U", next: "motif_deplacement" }
+      { id: 1, text: "Ligne N", next: "destination" },
+      { id: 2, text: "Ligne U", next: "destination" }
     ]
+  },
+  {
+    id: "destination",
+    text: "Quelle sera votre commune d'arrivée ?",
+    usesCommuneSelector: true,
+    next: "motif_deplacement"
   },
   {
     id: "motif_deplacement",

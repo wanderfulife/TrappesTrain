@@ -22,11 +22,9 @@
       <!-- Start Survey Step -->
       <div v-else-if="currentStep === 'start'" class="start-survey-container">
         <h2>
-          Bonjour,<br />
-          pour mieux connaître les usagers de la gare de Trappes,<br />
-          Saint-Quentin-en-Yvelines et la SNCF souhaiteraient en savoir plus sur
-          votre déplacement en cours.<br />
-          Auriez-vous quelques secondes à nous accorder ?»
+          Bonjour,<br> Saint-Quentin-en-Yvelines et Île-de-France Mobilités
+          souhaiteraient connaitre vos habitudes de déplacement depuis la Gare
+          de Trappes,<br> accepteriez-vous de répondre à quelques questions ?
         </h2>
         <h2></h2>
         <button @click="startSurvey" class="btn-next">
