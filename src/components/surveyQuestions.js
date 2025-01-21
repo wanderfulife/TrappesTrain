@@ -16,14 +16,14 @@ export const questions = [
       { id: 3, text: "Jaurès Gare - Jean Macé", next: "ligne_train" },
       { id: 4, text: "Le Moulin de la Galette", next: "ligne_train" },
       { id: 5, text: "Les Merisiers - Farges Thorez - Cité Nouvelle", next: "ligne_train" },
-      { id: 6, text: "La Boissière", next: "ligne_train" }
+      { id: 7, text: "Autre", next: "origine_quartier_autre" }
     ]
   },
   {
-    id: "origine_autre",
-    text: "Précisez la commune",
-    usesCommuneSelector: true,
-    next: "ligne_train"
+    id: "origine_quartier_autre",
+    text: "Précisez le quartier",
+    freeText: true,
+    next: "destination"
   },
   {
     id: "ligne_train",
