@@ -8,6 +8,12 @@ export const questions = [
     ]
   },
   {
+    id: "origine_autre",
+    text: "Précisez votre commune",
+    usesCommuneSelector: true,
+    next: "ligne_train"
+  },
+  {
     id: "origine_quartier",
     text: "Précisez le quartier",
     options: [
